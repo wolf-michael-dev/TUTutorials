@@ -1,3 +1,42 @@
+/* Standard: Light Mode */
+:root {
+  --bg-color: #F8FAFC;
+  --surface-color: #FFFFFF;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --brand-green: #10B981;
+  --brand-green-hover: #059669;
+}
+
+/* Automatischer Wechsel für Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0F172A;
+    --surface-color: #1E293B;
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+    --brand-green: #34D399; 
+    --brand-green-hover: #10B981;
+  }
+}
+
+/* Beispiel-Anwendung für deine UI */
 body {
-    margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+button {
+  background-color: var(--brand-green);
+  color: #ffffff; /* Text auf dem Button bleibt in beiden Modi weiß/dunkel je nach Kontrast */
+}
+
+button:hover {
+  background-color: var(--brand-green-hover);
 }
