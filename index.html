@@ -15,18 +15,19 @@
         
         <nav>
             <ul>
+                <!-- Links zeigen auf die IDs der Sections -->
                 <li><a href="#start" class="active">Home</a></li>
-                <li><a href="tutorials.html">Tutorials</a></li>
-                <li><a href="ai-models.html">AI Models</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="bfs-project.html">BFS-12 Project</a></li>
+                <li><a href="#tutorials">Tutorials</a></li>
+                <li><a href="#ai-models">AI Models</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#bfs-project">BFS-12 Project</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Oberer Bereich: Titel und Eingabefeld -->
-        <section class="hero-section">
+        <!-- Die erste Section bekommt id="start" -->
+        <section id="start" class="hero-section">
             <h2>Dein AI-Tutorial-Generator</h2>
             <p>Generiere Tutorials mit KI im Handumdrehen.</p>
             
@@ -36,10 +37,8 @@
             </div>
         </section>
 
-        <!-- Unterer Bereich: Tutorial-Output und Sidebar -->
+        <!-- Der restliche Content der Startseite -->
         <section class="content-grid">
-            
-            <!-- Linke Spalte: Das generierte Tutorial -->
             <div class="tutorial-card">
                 <div class="card-header">
                     <span class="card-title">Generiertes Tutorial</span>
@@ -61,7 +60,6 @@
                 <p><strong>json()</strong> wandelt Daten um, und mchamestpreuen wanden.</p>
             </div>
 
-            <!-- Rechte Spalte: Empfehlungen -->
             <aside class="sidebar">
                 <h4>Empfohlene Themen</h4>
                 <ul>
@@ -70,17 +68,42 @@
                     <li><a href="#">Netlify Deployment</a></li>
                 </ul>
             </aside>
-            
+        </section>
+
+        <!-- NEU: Hier baust du jetzt die anderen "Unterseiten" als Sections ein -->
+
+        <section id="tutorials" class="page-section">
+            <h2>Tutorials Archiv</h2>
+            <!-- Hier kommt das Grid für die Tutorial-Karten rein -->
+            <p>Platzhalter für deine gespeicherten Tutorials.</p>
+        </section>
+
+        <section id="ai-models" class="page-section">
+            <h2>AI Models</h2>
+            <!-- Hier kommen Infos zu Gemini Flash etc. rein -->
+            <p>Infos über die verwendete KI-Technologie.</p>
+        </section>
+
+        <section id="contact" class="page-section">
+            <h2>Contact</h2>
+            <!-- Hier kommt dein Kontaktformular rein -->
+            <p>Platzhalter für das Formular.</p>
+        </section>
+
+        <section id="bfs-project" class="page-section">
+            <h2>BFS-12 Project</h2>
+            <!-- Infos über dein Schulprojekt -->
+            <p>Infos zu deinem BFS-Projekt von Michael Wolf.</p>
         </section>
     </main>
 
     <!-- Footer Bereich -->
     <footer>
         <div class="footer-nav">
-            <a href="#">Home</a>
-            <a href="#">Tutorials</a>
-            <a href="#">AI Models</a>
-            <a href="#">Contact</a>
+            <a href="#start">Home</a>
+            <a href="#tutorials">Tutorials</a>
+            <a href="#ai-models">AI Models</a>
+            <a href="#contact">Contact</a>
         </div>
         <p>Ein Projekt der BFS Ansbach, 12. Klasse. (Michael Wolf)</p>
     </footer>

@@ -1,17 +1,13 @@
-/* Erhöht die maximale Breite für das 2-Spalten-Layout */
 body {
     max-width: 1000px;
 }
 
-/* =========================================
-   HEADER & NAVIGATION
-========================================= */
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 0; 
-    /* Der Header selbst ist jetzt durchsichtig, nicht mehr komplett weiß */
     background-color: transparent; 
     box-shadow: none;
 }
@@ -234,4 +230,17 @@ footer {
 footer p {
     color: var(--text-muted);
     font-size: 0.8rem;
+}
+
+/* Styling für die einzelnen Bereiche, damit man gut zu ihnen scrollen kann */
+.page-section {
+    padding: 6rem 0; /* Sorgt für genug Platz nach oben und unten */
+    border-top: 1px solid #E2E8F0; /* Optionale Trennlinie */
+    margin-top: 2rem;
+}
+
+.page-section h2 {
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    font-size: 2rem;
 }
