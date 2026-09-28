@@ -1,44 +1,237 @@
-h1 {
-    color: var(--brand-green);
+/* Erhöht die maximale Breite für das 2-Spalten-Layout */
+body {
+    max-width: 1000px;
 }
-/* Header Container: Flexbox drückt Logo nach links und Nav nach rechts */
+
+/* =========================================
+   HEADER & NAVIGATION
+========================================= */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
-    background-color: var(--surface-color); /* Reines Weiß oder Schiefergrau je nach Mode */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Dezenter Schatten als optische Trennung */
+    padding: 1.5rem 0; 
+    /* Der Header selbst ist jetzt durchsichtig, nicht mehr komplett weiß */
+    background-color: transparent; 
+    box-shadow: none;
 }
 
-/* Logo-Styling (fett und in der Haupttextfarbe) */
-.logo a {
+.logo {
     font-size: 1.5rem;
-    font-weight: 700; /* Passend zu deiner Inter-Schriftart */
-    color: var(--text-main); /* Fast Schwarz im Light Mode */
-    text-decoration: none;
+    font-weight: 700;
 }
 
-/* Flexbox für die Navigations-Liste */
+.logo .brand-green {
+    color: var(--brand-green);
+}
+
+/* Navigations-Pille */
+nav {
+    background-color: var(--surface-color);
+    padding: 0.75rem 2rem;
+    border-radius: 50px; /* Macht die Box stark abgerundet */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Dezenter Schatten */
+}
+
 nav ul {
     display: flex;
-    gap: 2.5rem; /* Gleichmäßiger Abstand zwischen den Links */
-    list-style: none; /* Entfernt die Bulletpoints */
+    gap: 1.5rem;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-/* Standard-Design der Links */
 nav a {
     text-decoration: none;
-    color: var(--text-muted); /* Mittelgrau */
+    color: var(--text-muted);
     font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.2s ease; /* Weicher Übergang beim Hovern */
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
 }
 
-/* Leuchteffekt mit deiner Akzentfarbe, wenn man mit der Maus drübergeht */
 nav a:hover,
 nav a.active {
-    color: var(--brand-green); /* Das satte Smaragdgrün #10B981 */
+    color: var(--text-main); /* Im Bild ist aktiver Link eher dunkel */
+}
+
+/* =========================================
+   MAIN: HERO BEREICH (Eingabe)
+========================================= */
+.hero-section {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.hero-section p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* Suchfeld / Prompt-Eingabe */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--surface-color);
+    padding: 0.5rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: var(--text-main);
+    outline: none;
+    font-family: inherit;
+}
+
+.search-bar button {
+    background-color: var(--brand-green);
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* =========================================
+   MAIN: TUTORIAL & SIDEBAR (2 Spalten)
+========================================= */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr; /* Linke Spalte größer als die rechte */
+    gap: 3rem;
+}
+
+/* Die weiße Karte für das Tutorial */
+.tutorial-card {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #E2E8F0;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-title {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.badge {
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.tutorial-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.tutorial-card p {
+    color: var(--text-main);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+/* Code Block in Nachtblau */
+.code-block {
+    background-color: #0F172A; 
+    color: #F8FAFC;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+.code-block pre {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Sidebar Rechts */
+.sidebar h4 {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.sidebar a:hover {
+    color: var(--brand-green);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+footer {
+    text-align: center;
+    margin-top: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid #E2E8F0;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
 }
