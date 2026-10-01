@@ -26,7 +26,7 @@ nav {
     background-color: var(--surface-color);
     padding: 0.75rem 2rem;
     border-radius: 50px; /* Macht die Box stark abgerundet */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Dezenter Schatten */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
 }
 
 nav ul {
@@ -47,12 +47,10 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    color: var(--text-main); /* Im Bild ist aktiver Link eher dunkel */
+    color: var(--text-main); 
 }
 
-/* =========================================
-   MAIN: HERO BEREICH (Eingabe)
-========================================= */
+
 .hero-section {
     text-align: center;
     margin-top: 3rem;
@@ -70,7 +68,6 @@ nav a.active {
     margin-bottom: 2rem;
 }
 
-/* Suchfeld / Prompt-Eingabe */
 .search-bar {
     display: flex;
     align-items: center;
@@ -105,16 +102,13 @@ nav a.active {
     transition: background-color 0.2s;
 }
 
-/* =========================================
-   MAIN: TUTORIAL & SIDEBAR (2 Spalten)
-========================================= */
+
 .content-grid {
     display: grid;
-    grid-template-columns: 2.5fr 1fr; /* Linke Spalte größer als die rechte */
+    grid-template-columns: 2.5fr 1fr; 
     gap: 3rem;
 }
 
-/* Die weiße Karte für das Tutorial */
 .tutorial-card {
     background-color: var(--surface-color);
     padding: 2rem;
@@ -158,7 +152,6 @@ nav a.active {
     margin-bottom: 1rem;
 }
 
-/* Code Block in Nachtblau */
 .code-block {
     background-color: #0F172A; 
     color: #F8FAFC;
@@ -175,7 +168,6 @@ nav a.active {
     line-height: 1.4;
 }
 
-/* Sidebar Rechts */
 .sidebar h4 {
     font-size: 1rem;
     margin-bottom: 1.5rem;
@@ -202,9 +194,7 @@ nav a.active {
     color: var(--brand-green);
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+
 footer {
     text-align: center;
     margin-top: 5rem;
@@ -232,10 +222,9 @@ footer p {
     font-size: 0.8rem;
 }
 
-/* Styling für die einzelnen Bereiche, damit man gut zu ihnen scrollen kann */
 .page-section {
-    padding: 6rem 0; /* Sorgt für genug Platz nach oben und unten */
-    border-top: 1px solid #E2E8F0; /* Optionale Trennlinie */
+    padding: 6rem 0; 
+    border-top: 1px solid #E2E8F0; 
     margin-top: 2rem;
 }
 
