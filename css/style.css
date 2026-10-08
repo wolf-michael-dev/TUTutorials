@@ -2,6 +2,7 @@
   --bg-color: #F8FAFC;
   --surface-color: #FFFFFF;
   --text-main: #0F172A;
+  --text-white: #FFFFFF;
   --text-muted: #64748B;
   --brand-green: #10B981;
   --brand-green-hover: #059669;
@@ -12,6 +13,7 @@
     --bg-color: #0F172A;
     --surface-color: #1E293B;
     --text-main: #F8FAFC;
+    --text-black: #000000;
     --text-muted: #94A3B8;
     --brand-green: #34D399; 
     --brand-green-hover: #10B981;
