@@ -70,7 +70,7 @@ generateBtn.addEventListener('click', async () => {
             body: JSON.stringify({
                 contents: [{
                     parts: [{
-                        text: `Schreibe ein kurzes, anfängerfreundliches Tutorial zum Thema: ${userTopic}. Formatiere die Antwort direkt als sauberes tutorial`
+                        text: `Schreibe ein kurzes, anfängerfreundliches Programmier-Tutorial zum Thema: ${userTopic}. Formatiere die Antwort direkt als sauberes HTML ohne Markdown-Blöcke (kein \`\`\`html). Nutze <h3> für Titel, <p> für Text, <strong> für Hervorhebungen und den <div class="code-block"><pre><code> Tag-Aufbau für Code. Gib nur das HTML zurück.`
                     }]
                 }]
             })
@@ -119,3 +119,80 @@ generateBtn.addEventListener('click', async () => {
 document.addEventListener('DOMContentLoaded', () => {
     renderArchive();
 });  
+
+// Funktion: Die letzten 3 Tutorials in der Sidebar anzeigen
+function renderRecommended() {
+    const recommendedList = document.getElementById('recommended-list');
+    if (!recommendedList) return;
+
+    recommendedList.innerHTML = '';
+
+    // Die ersten 3 Einträge aus dem Archiv (das sind die neuesten) nehmen
+    const latestTutorials = tutorialsArchive.slice(0, 3);
+
+    latestTutorials.forEach(tut => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#start';
+        a.textContent = tut.title;
+        
+        // Wenn man draufklickt, öffnet sich das Tutorial direkt oben in der Karte
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            openTutorial(tut.id);
+        });
+
+        li.appendChild(a);
+        recommendedList.appendChild(li);
+    });
+}
+
+// WICHTIG: Rufe renderRecommended() hier in der renderArchive-Funktion oder beim Laden auf:
+document.addEventListener('DOMContentLoaded', () => {
+    renderArchive();
+    renderRecommended(); // <-- Hier initialisieren
+});// Funktion: Die letzten 3 Tutorials in der Sidebar anzeigen
+function renderRecommended() {
+    const recommendedList = document.getElementById('recommended-list');
+    if (!recommendedList) return;
+
+    recommendedList.innerHTML = '';
+
+    // Die ersten 3 Einträge aus dem Archiv (das sind die neuesten) nehmen
+    const latestTutorials = tutorialsArchive.slice(0, 3);
+
+    latestTutorials.forEach(tut => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#start';
+        a.textContent = tut.title;
+        
+        // Wenn man draufklickt, öffnet sich das Tutorial direkt oben in der Karte
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            openTutorial(tut.id);
+        });
+
+        li.appendChild(a);
+        recommendedList.appendChild(li);
+    });
+}
+
+// WICHTIG: Rufe renderRecommended() hier in der renderArchive-Funktion oder beim Laden auf:
+document.addEventListener('DOMContentLoaded', () => {
+    renderArchive();
+    renderRecommended(); // <-- Hier initialisieren
+});
+
+// Alle Navigations-Links auswählen
+const navLinks = document.querySelectorAll('nav a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        // 1. Bei ALLEN Links die Klasse 'active' entfernen
+        navLinks.forEach(item => item.classList.remove('active'));
+        
+        // 2. NUR dem angeklickten Link die Klasse 'active' hinzufügen
+        this.classList.add('active');
+    });
+});
