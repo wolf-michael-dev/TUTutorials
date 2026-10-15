@@ -1,20 +1,15 @@
-// Dein API-Key
 const API_KEY = CONFIG.API_KEY;
-// HTML-Elemente greifen
 const generateBtn = document.getElementById('generate-btn');
 const promptInput = document.getElementById('prompt-input');
 const tutorialOutput = document.getElementById('tutorial-output');
 
-// Laden oder Initialisieren des Archivs aus dem Browser-Speicher (localStorage)
 let tutorialsArchive = JSON.parse(localStorage.getItem('tutorium_archive')) || [
     { id: 1, title: 'Flexbox Guide', desc: 'Flexbox guide to on discover comension in state or from flexbox guide...', tag: 'Web Dev', content: '<h3>Flexbox Guide</h3><p>Flexbox ist ein mächtiges Layout-Modul...</p>' },
     { id: 2, title: 'Python for Beginners', desc: 'Learn how common python appears with rass...', tag: 'Python', content: '<h3>Python for Beginners</h3><p>Python ist eine einfache Programmiersprache...</p>' },
     { id: 3, title: 'Introduction to Git', desc: 'Learn more about am introduction to Git...', tag: 'Tools', content: '<h3>Introduction to Git</h3><p>Git ist ein Versionsverwaltungssystem...</p>' }
 ];
 
-// Funktion: Archiv im HTML-Bereich rendern
 function renderArchive() {
-    // Wir suchen das Grid im Archiv (wir müssen sicherstellen, dass id="archive-grid" im HTML existiert)
     const archiveGrid = document.getElementById('archive-grid');
     if (!archiveGrid) return;
 
@@ -35,15 +30,12 @@ function renderArchive() {
     });
 }
 
-// Funktion: Ein Tutorial öffnen oder bearbeiten
 window.openTutorial = function(id) {
     const tut = tutorialsArchive.find(t => t.id === id);
     if (!tut) return;
 
-    // Das Tutorial oben in der Haupt-Card anzeigen
     tutorialOutput.innerHTML = tut.content;
 
-    // Optional: Direkt in den Bearbeitungsmodus übergehen oder Inhalt anpassen
     const action = confirm(`Möchtest du das Tutorial "${tut.title}" bearbeiten?`);
     if (action) {
         const newText = prompt("Bearbeite den Inhalt (HTML erlaubt):", tut.content);
@@ -56,11 +48,9 @@ window.openTutorial = function(id) {
         }
     }
 
-    // Sanft nach oben zur Hauptkarte scrollen
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
-// Klick-Event für den Generieren-Button
 generateBtn.addEventListener('click', async () => {
     const userTopic = promptInput.value.trim();
     
@@ -105,22 +95,19 @@ generateBtn.addEventListener('click', async () => {
         let aiText = data.candidates[0].content.parts[0].text;
         aiText = aiText.replace(/```html/g, '').replace(/```/g, '').trim();
         
-        // In die Haupt-Card einfügen
         tutorialOutput.innerHTML = aiText;
 
-        // NEU: Das generierte Tutorial automatisch dem Archiv hinzufügen!
         const newTutorial = {
-            id: Date.now(), // Eindeutige ID basierend auf Timestamp
+            id: Date.now(), 
             title: userTopic,
             desc: `KI-generiertes Tutorial zum Thema ${userTopic}...`,
             tag: 'AI Generated',
             content: aiText
         };
 
-        tutorialsArchive.unshift(newTutorial); // Oben im Archiv hinzufügen
+        tutorialsArchive.unshift(newTutorial); 
         localStorage.setItem('tutorium_archive', JSON.stringify(tutorialsArchive));
         
-        // Archiv neu zeichnen
         renderArchive();
 
     } catch (error) {
@@ -129,7 +116,6 @@ generateBtn.addEventListener('click', async () => {
     }
 });
 
-// Beim Laden der Seite das Archiv direkt initialisieren
 document.addEventListener('DOMContentLoaded', () => {
     renderArchive();
 });  
