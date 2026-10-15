@@ -1,5 +1,5 @@
 // Dein API-Key
-
+const API_KEY = CONFIG.API_KEY;
 // HTML-Elemente greifen
 const generateBtn = document.getElementById('generate-btn');
 const promptInput = document.getElementById('prompt-input');
@@ -80,7 +80,7 @@ generateBtn.addEventListener('click', async () => {
             body: JSON.stringify({
                 contents: [{
                     parts: [{
-                        text: `Schreibe ein kurzes, anfängerfreundliches Tutorial zum Thema: ${userTopic}. Formatiere die Antwort direkt als sauberes tutorial (kein \`\`\`html). Nutze <h3> für Titel, <p> für Text, <strong> für Hervorhebungen und den <div class="code-block"><pre><code> Tag-Aufbau für Code. Gib nur das HTML zurück.`
+                        text: `Schreibe ein kurzes, anfängerfreundliches Tutorial zum Thema: ${userTopic}. Formatiere die Antwort direkt als sauberes tutorial`
                     }]
                 }]
             })
