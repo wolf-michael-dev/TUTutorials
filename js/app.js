@@ -70,7 +70,7 @@ generateBtn.addEventListener('click', async () => {
             body: JSON.stringify({
                 contents: [{
                     parts: [{
-                        text: `Schreibe ein kurzes, anfängerfreundliches Programmier-Tutorial zum Thema: ${userTopic}. Formatiere die Antwort direkt als sauberes HTML ohne Markdown-Blöcke (kein \`\`\`html). Nutze <h3> für Titel, <p> für Text, <strong> für Hervorhebungen und den <div class="code-block"><pre><code> Tag-Aufbau für Code. Gib nur das HTML zurück.`
+                        text: `Schreibe ein kurzes, anfängerfreundliches Programmier-Tutorial zum Thema: ${userTopic}. Formatiere die Antwort direkt als sauberes tutorial wie man es im echten leben macht.`
                     }]
                 }]
             })
